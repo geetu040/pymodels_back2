@@ -8,6 +8,7 @@
 # ============ api ============ 
 
 /api/__pycache__
+/api/.git
 
 /api/src/base/__pycache__
 /api/src/book_rec/__pycache__

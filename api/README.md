@@ -1,8 +1,8 @@
 ---
 title: Pymodels
-emoji: 📚
-colorFrom: green
-colorTo: purple
+emoji: 📊
+colorFrom: indigo
+colorTo: yellow
 sdk: docker
 pinned: false
 ---
