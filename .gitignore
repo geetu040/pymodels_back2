@@ -7,8 +7,6 @@
 
 # ============ api ============ 
 
-/api/.gitignore
-
 /api/__pycache__
 
 /api/src/base/__pycache__
