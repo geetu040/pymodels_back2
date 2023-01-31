@@ -22,6 +22,10 @@ export default class MovieReviews extends TextClasifier {
 			2,
 			// classes
 			['Negative', 'Positive'],
+			// samples
+			samples,
 		)
 	}
 }
+
+const samples = ["great movie", "love it", "hate it", "worst movie ever", "gonna watch it again and again", "It was actually a really stupid movie, never going to wathch it again"];
