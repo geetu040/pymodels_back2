@@ -5,7 +5,7 @@ export const Categorical = ({ classes, output, c }) => {
 	return (<>
 
 		<div className='py-10 '>
-			<button className='
+			<button className={`
 					mx-auto  block
 					text-xl
 					border border-1
@@ -13,8 +13,8 @@ export const Categorical = ({ classes, output, c }) => {
 					
 					font-bold
 					rounded-md
-					border-blue-900
-				'>Prediction:
+					border-${c}-900
+				`}>Prediction:
 				<span className={`px-2 mx-1 bg-${c}-200 font-bold py-1`}>
 					<strong>{classes[output.indexOf(Math.max(...output))]}</strong>
 				</span></button>

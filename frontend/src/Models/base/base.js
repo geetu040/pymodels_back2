@@ -25,6 +25,9 @@ export default class Base {
 		.then((res)=>{
 			let output = res
 			callback(output);
+			setTimeout(() => {
+				window.scrollTo(0, window.document.body.scrollHeight / 2);
+			}, 100);
 		}).catch((error)=>{
 			let output = null;
 			callback(output);

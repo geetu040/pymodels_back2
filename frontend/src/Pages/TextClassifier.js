@@ -37,17 +37,28 @@ export const TextClassifier = ({ props }) => {
 		set_text(loaded_text)
 	}
 
+	// STYLES
+	const btnStyle = `
+		w-1/3 my-2 bg-${c}-400 cursor-pointer
+		rounded text-${c}-900 border px-3 py-2 font-semibold
+		border border-${c}-600
+		shadow-2xl hover:bg-${c}-500
+	`
+
 	return (<>
 
-		<div className="w-[80%] border bg-blue-300 border-blue-900 mx-auto text-center">
+		<div className={`w-[100%] py-10 px-10 text-${c}-900 min-h-screen border bg-${c}-100 border-${c}-900 mx-auto text-center`}>
 
-			<h1 className='font-semibold my-4 text-4xl'>{opt.title}</h1>
-			<p className='px-6 text-xl my-4'>{opt.desc}</p>
+			<h1 className='font-bold my-4 text-4xl'>{opt.title}</h1>
+			<p className='px-6 text-xl my-7'>{opt.desc}</p>
 
 			{/* TEXT */}
 			<textarea
 				className={`
-				border border-blue-900 resize-none w-[100%]
+				border border-${c}-900 resize-none w-[100%]
+				rounded p-3 bg-${c}-200
+				text-${c}- placeholder:text-${c}-900 placeholder:italic
+				shadow-2xl
 				`}
 				cols="30"
 				rows="10"
@@ -57,30 +68,37 @@ export const TextClassifier = ({ props }) => {
 			>
 			</textarea>
 
-			{/* LOAD */}
-			<button className="" onClick={load_text}>Load Text</button>
+			<div className="flex justify-evenly items-center">
+				{/* LOAD */}
+				<button className={`${btnStyle}`} onClick={load_text}>Load Text</button>
 
-			{/* BROWSE */}
-			<input
-				type="file"
-				onChange={event => {
-					set_text("");
-					let file = event.target.files[0];
-					if (file) {
-						let fr = new FileReader()
-						fr.readAsText(file);
-						fr.onload = () => {
-							set_text(fr.result);
-						}
-					}
-				}}
-			/>
+				{/* BROWSE */}
+				<label htmlFor="tc-file-input" className={`
+					${btnStyle} 
+				`} >
+					Upload File
+					<input
+						hidden
+						id="tc-file-input"
+						type="file"
+						onChange={event => {
+							set_text("");
+							let file = event.target.files[0];
+							if (file) {
+								let fr = new FileReader()
+								fr.readAsText(file);
+								fr.onload = () => {
+									set_text(fr.result);
+								}
+							}
+						}}
+					/>
+				</label>
+			</div>
 
-			<br />
 			
 			{/* PREDICT */}
-			<button onClick={predict}>Predict</button>
-
+			<button className={`${btnStyle} text-xl`} onClick={predict}>Predict</button>
 			<br />
 
 			{/* LOADER */}
