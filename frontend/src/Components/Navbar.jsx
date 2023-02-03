@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const Navbar = ({ props }) => {
 	const c = props.c;
 	const page = window.location.href.split("/").pop()
-	const next = `/data/notebooks/${page}_notebook.html`;
+	const opt = props.options[page];
 
 	return (<>
 		<nav className={`
@@ -44,7 +44,7 @@ export const Navbar = ({ props }) => {
 				text-lg
 				shadow-xl
 				shadow-${c}-900
-			`}><a href={next} target="blank">Check Notebook</a></button>
+			`}><a href={opt.getCodeLink()} target="blank">Check Notebook</a></button>
 			}
 		</nav>
 
