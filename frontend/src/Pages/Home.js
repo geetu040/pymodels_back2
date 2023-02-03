@@ -40,5 +40,10 @@ export const Home = ({ props }) => {
 			</div>)
 		})}
 
+		{/* FOR TAILWIND CSS */}
+		<div hidden className={`
+		bg-blue-900 text-blue-900 bg-blue-100 shadow-blue-900 border-blue-900 bg-blue-200 bg-blue-400 shadow-blue-600/50 shadow-blue-900/50 text-blue-200 bg-blue-500 text-blue-100 bg-blue-300 bg-blue-800 font-blue-900 border-blue-100 text-blue-50 border-blue-50 shadow-blue-500 bg-blue-700 bg-blue-600 border-blue-600 hover:bg-blue-500 text-blue- placeholder:text-blue-900
+		`}></div>
+
 	</div>)
 }
