@@ -18,6 +18,7 @@ import { Navbar } from "./Components/Navbar";
 // MODELS
 import CatAndDog from "./Models/cat_and_dog";
 import MovieRec from "./Models/movie_rec";
+import Movie2022Rec from "./Models/movie_2022_rec";
 import BookRec from "./Models/book_rec"
 import MovieReviews from "./Models/movie_reviews";
 
@@ -26,6 +27,7 @@ const models = [
 	new CatAndDog(),
 	new MovieReviews(),
 	new BookRec(),
+	new Movie2022Rec(),
 	new MovieRec(),
 ]
 

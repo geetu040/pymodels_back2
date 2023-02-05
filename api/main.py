@@ -5,6 +5,7 @@ from src.movie_reviews.main import movie_reviews, Schema as MovieReviewsSchema
 from src.cat_and_dog.main import cat_and_dog, Schema as CatAndDogSchema
 from src.book_rec.main import book_rec, Schema as BookRecSchema
 from src.movie_rec.main import movie_rec, Schema as MovieRecSchema
+from src.movie_2022_rec.main import movie_2022_rec, Schema as Movie2022RecSchema
 
 # Initializing App
 app = FastAPI()
@@ -48,3 +49,7 @@ def endpoint_book_rec(req: BookRecSchema):
 @app.post("/movie_rec")
 def endpoint_movie_rec(req: MovieRecSchema):
     return movie_rec(req)
+
+@app.post("/movie_2022_rec")
+def endpoint_movie_2022_rec(req: Movie2022RecSchema):
+    return movie_2022_rec(req)
