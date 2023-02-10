@@ -8,20 +8,18 @@ import {
 
 // PAGES
 import { Home } from "./Pages/Home";
-import { ImgClassifier } from "./Pages/ImgClassifier";
-import { Recommender } from "./Pages/Recommender";
-import { TextClassifier } from "./Pages/TextClassifier";
+import { Model } from "./Pages/Model";
 
 // COMPONENTS
 import { Navbar } from "./Components/Navbar";
 
 // MODELS
-import FaceAnalytics from "./Models/face_analytics";
-import CatAndDog from "./Models/cat_and_dog";
-import MovieRec from "./Models/movie_rec";
-import Movie2022Rec from "./Models/movie_2022_rec";
-import BookRec from "./Models/book_rec"
-import MovieReviews from "./Models/movie_reviews";
+import CatAndDog from "./Scripts/models/cat_and_dog"
+import FaceAnalytics from "./Scripts/models/face_analytics"
+import MovieReviews from "./Scripts/models/movie_reviews"
+import BookRec from "./Scripts/models/book_rec"
+import MovieRec from "./Scripts/models/movie_rec"
+import Movie2022Rec from "./Scripts/models/movie_2022_rec"
 
 // CREATING MODEL INSTANCES
 const models = [
@@ -70,17 +68,7 @@ export default function App() {
 
 			<Route key={i} path={`/${model.name}`} element={<>
 				<Navbar props={props} />
-
-				{model.type === "img_classifier" &&
-					<ImgClassifier props={props} />
-				}
-				{model.type === "recommender" &&
-					<Recommender props={props} />
-				}
-				{model.type === "text_classifier" &&
-					<TextClassifier props={props} />
-				}
-
+				<Model model={model} props={props} />
 			</>}/>
 
 		)})}

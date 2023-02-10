@@ -1,10 +1,16 @@
-import TextClasifier from "./base/text_classifier";
+// BASE
+import Base from "../base";
 
-export default class MovieReviews extends TextClasifier {
-	constructor () {
+// INPUTS
+import TextInput from "../inputs/text_input";
+
+// OUTPUT
+import CategoricalOutput from "../outputs/categorical_output";
+
+export default class FaceAnalytics extends Base {
+	constructor() {
 		super();
 
-		// SETTING BASE DATA
 		this.setBase(
 			// name
 			'movie_reviews',
@@ -14,17 +20,24 @@ export default class MovieReviews extends TextClasifier {
 			0,
 			// description
 			"Enter a movie review and let the model predict if it is a positive review or a negative one. You can review in a word, two words or more than 5000 words, there is no limit, but as the review length increases, the computation takes time respectively.",
+		);
+
+		this.inputs = [
+			new TextInput(
+				// samples
+				samples,
+			)
+		]
+
+		this.output = new CategoricalOutput(
+			// classes
+			[['Negative', 'Positive']],	// binary classifier
 		)
 
-		// SETTING PAGE DATA
-		this.setPage(
-			// classes
-			[['Negative', 'Positive']],	// binary output
-			// samples
-			samples,
-		)
 	}
 }
+
+
 
 const samples_from_data = [
 	`Hilarious, clean, light-hearted, and quote-worthy. What else can you ask for in a film? This is my all-time, number one favorite movie. Ever since I was a little girl, I've dreamed of owning a blue van with flames and an observation bubble.The cliché characters in ridiculous situations are what make this film such great fun. The wonderful comedic chemistry between Stephen Furst (Harold) and Andy Tennant (Melio) make up most of my favorite parts of the movie. And who didn't love the hopeless awkwardness of Flynch? Don't forget the airport antics of Leon's cronies, dressed up as Hari Krishnas: dancing, chanting and playing the tambourine--unbeatable! The clues are genius, the locations are classic, and the plot is timeless.A word to the wise, if you didn't watch this film when you were little, it probably won't win a place in your heart today. But nevertheless give it a chance, you may find that "It doesn't matter what you say, it doesn't matter what you do, you've gotta play."`,

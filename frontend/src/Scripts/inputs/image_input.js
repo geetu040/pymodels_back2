@@ -1,15 +1,17 @@
-import Base from "./base"
-
-export default class ImgClassifier extends Base {
-	setPage (classes, img_size, img_format, total_imgs, output_mode) {
-
-		this.classes = classes;
+export default class ImageInput {
+	constructor (
+		img_size,
+		img_format,
+		total_imgs,
+		model_name,
+	) {
 		this.img_size = img_size;
 		this.img_format = img_format;
 		this.total_imgs = total_imgs;
-		this.output_mode = output_mode;
+		this.model_name = model_name;
 
-		this.type = "img_classifier";
+		this.type = "image";
+		this.img_path = `/data/inputs/image/${model_name}/`
 
 		this.load_imgs();
 	}
@@ -17,11 +19,7 @@ export default class ImgClassifier extends Base {
 		let random_imgs_url = []
 		for (let i=1; i<=this.total_imgs; i++) {
 			random_imgs_url.push(
-				// /data/img_classifier_imgs/cat_and_dog/1.jpg
-				"/" + this.data_folder + "/" +
-				'img_classifier_imgs/' + this.name + "/" +
-				i + "." +
-				this.img_format
+				this.img_path + i + "." + this.img_format
 			)
 		}
 		this.random_imgs_url = random_imgs_url;
@@ -38,6 +36,7 @@ export default class ImgClassifier extends Base {
 		if (this.random_imgs_url.length === 0) {
 			this.random_imgs_url = [...this.orig_random_imgs_url]
 		}
+
 		return url;
 	}
 }
