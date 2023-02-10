@@ -30,7 +30,7 @@ export default class FaceAnalytics extends ImgClassifier {
 			// img_format
 			"jpg",
 			// total_imgs
-			6,
+			8,
 			// output_mode
 			"multiple_binary"
 		);
