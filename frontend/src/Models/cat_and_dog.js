@@ -19,16 +19,16 @@ export default class CatAndDog extends ImgClassifier {
 
 		// SETTING PAGE DATA
 		this.setPage(
-			// n_classes
-			2,
 			// classes
-			['Cat', 'Dog'],
+			[['Cat', 'Dog']],	// binary output
 			// img_size
 			[64, 64],
 			// img_format
 			"jpg",
 			// total_imgs
 			50,
+			// output_mode
+			"binary",
 		)
 	}
 }

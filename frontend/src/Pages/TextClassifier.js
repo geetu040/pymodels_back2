@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { Categorical } from "../Components/Outputs/Categorical";
 import { Loader } from "../Components/Loader";
+import { Categorical } from "../Components/Outputs/Categorical";
 
 export const TextClassifier = ({ props }) => {
 

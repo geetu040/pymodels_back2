@@ -16,6 +16,7 @@ import { TextClassifier } from "./Pages/TextClassifier";
 import { Navbar } from "./Components/Navbar";
 
 // MODELS
+import FaceAnalytics from "./Models/face_analytics";
 import CatAndDog from "./Models/cat_and_dog";
 import MovieRec from "./Models/movie_rec";
 import Movie2022Rec from "./Models/movie_2022_rec";
@@ -24,6 +25,7 @@ import MovieReviews from "./Models/movie_reviews";
 
 // CREATING MODEL INSTANCES
 const models = [
+	new FaceAnalytics(),
 	new CatAndDog(),
 	new MovieReviews(),
 	new BookRec(),

@@ -9,17 +9,13 @@ class Schema(BaseModel):
 	img_url:str = None
 
 # Request Handler
-def cat_and_dog(req):
+def face_analytics(req):
 	resized_img_base64 = req.resized_img_base64
 	img_url = req.img_url
 	output = predict(resized_img_base64, img_url)
 	return output
 
-model_path = "./src/cat_and_dog/model_85.9.h5"
-"""
-This Model has an accuracy of 85.9%
-"""
-
+model_path = "./src/face_analytics/model.h5"
 model = tf.keras.models.load_model(model_path)
 
 def predict(img_data, img_url):
@@ -34,10 +30,12 @@ def predict(img_data, img_url):
 	img = tf.keras.preprocessing.image.load_img(img, target_size=model.input_shape[1:])
 	img = np.array(img)
 	img = img.reshape(1, *img.shape)
-	img = img / 255.
-	pred = model.predict(img)[0, 0]
-	pred = float(pred)
+	img = tf.keras.applications.inception_v3.preprocess_input(img)
+	pred = model.predict(img)
 
+	return [[round(j, 3) for j in i] for i in np.hstack([(1-pred).T, pred.T]).tolist()]
 	return [
-		[round(1-pred, 3), round(pred, 3)],
+		[0.3, 0.7],
+		[0.2, 0.8],
+		[0.9, 0.1],
 	]

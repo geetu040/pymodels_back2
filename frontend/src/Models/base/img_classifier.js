@@ -1,13 +1,13 @@
 import Base from "./base"
 
 export default class ImgClassifier extends Base {
-	setPage (n_classes, classes, img_size, img_format, total_imgs) {
+	setPage (classes, img_size, img_format, total_imgs, output_mode) {
 
-		this.n_classes = n_classes;
 		this.classes = classes;
 		this.img_size = img_size;
 		this.img_format = img_format;
 		this.total_imgs = total_imgs;
+		this.output_mode = output_mode;
 
 		this.type = "img_classifier";
 

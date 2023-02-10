@@ -54,7 +54,7 @@ def predict(text):
 	output = [0, 0]
 	output[pred] = 0.8
 	output[1-pred] = 0.2
-	return output
+	return [output]
 
 def preprocess(text):
     text = text.lower()	# Lowercase

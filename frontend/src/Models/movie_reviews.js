@@ -18,10 +18,8 @@ export default class MovieReviews extends TextClasifier {
 
 		// SETTING PAGE DATA
 		this.setPage(
-			// n_classes
-			2,
 			// classes
-			['Negative', 'Positive'],
+			[['Negative', 'Positive']],	// binary output
 			// samples
 			samples,
 		)
